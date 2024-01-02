@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Music App</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+  </head>
+  <body>
+    <div class="wrapper flex">
+      <div class="musicapp flex">
+        <div class="music__list flex flex-column">
+          <div class="music__filter flex">
+            <button class="filter__btn">O‘zbekcha qo‘shiqlar</button>
+            <button class="filter__btn">Tojikcha</button>
+            <button class="filter__btn">Eroncha</button>
+            <button class="filter__btn">Turkcha</button>
+            <button class="filter__btn">TikTok Xitlar</button>
+            <button class="filter__btn">Ishda eshitish uchun</button>
+          </div>
+          <ul class="list">
+            <li>
+              <img src="https://placehold.co/56" alt="" />
+              <img src="./assets/images/play.svg" class="list_img" alt="" />
+              <div>
+                <h3>Onam (2017)</h3>
+                <span>Sardor Rahimxon</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="music__play">
+          <div class="play">
+            <img
+              src="https://placehold.co/467?text=musiqani+img"
+              alt="music img"
+              class="play__img"
+            />
+            <div class="play__card">
+              <h3></h3>
+              <span></span>
+              <div class="progress__bar">
+                <span></span>
+              </div>
+              <div class="timer timer-start">01:46</div>
+              <div class="timer timer-end">03:30</div>
+              <audio src="" id="main-audio"></audio>
+              <div class="controls">
+                <i class="material-icons">repeat</i>
+                <i class="material-icons" id="prev">skip_previous</i>
+                <div class="play-pause">
+                  <i class="material-icons">play_arrow</i>
+                </div>
+                <i class="material-icons" id="next">skip_next</i>
+                <i class="material-icons">favorite</i>
+              </div>
+            </div>
+          </div>
+          <div class="reklama">reklama</div>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="main.js"></script>
+  </body>
+</html>

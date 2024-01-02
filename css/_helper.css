@@ -1,0 +1,100 @@
+html {
+  font-size: 62.5%;
+}
+
+/* for Flex box ============================================================================================= */
+
+.flex {
+  display: flex;
+}
+
+.flex-center {
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.flex-column-reverse {
+  flex-direction: column-reverse;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.flex-row-reverse {
+  flex-direction: row-reverse;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.flex-nowrap {
+  flex-wrap: nowrap;
+}
+
+.flex-wrap-reverse {
+  flex-wrap: wrap-reverse;
+}
+
+/* for justify ========================================================================================== */
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.justify-around {
+  justify-content: space-around;
+}
+
+.justify-evenly {
+  justify-content: space-evenly;
+}
+
+/* for Grid ================================================================================================== */
+
+.grid {
+  display: grid;
+}
+
+/* for color =================================================================================================== */
+
+.text-white {
+  color: #fff;
+}
+
+.text-black {
+  color: #000;
+}
+
+.bg-white {
+  background-color: #fff;
+}
+
+.bg-black {
+  background-color: #000;
+}
+
+/* for text ========================================================================================================== */
+
+.text-center {
+  text-align: center;
+}
+
+.font-regular {
+  font-weight: 400;
+}
+.font-samibold {
+  font-weight: 600;
+}
+.font-bold {
+  font-weight: bold;
+}
