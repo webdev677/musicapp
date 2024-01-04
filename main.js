@@ -38,16 +38,17 @@ function pauseMusic() {
   mainAudio.pause();
 }
 
-function nextMusic() {
-  musicIndex++;
-  musicIndex > data.length ? (musicIndex = 1) : (musicIndex = musicIndex);
+//prev music function
+function prevMusic() {
+  musicIndex--; //decrement of musicIndex by 1
+  musicIndex < 1 ? (musicIndex = data.length) : (musicIndex = musicIndex);
   loadMusic(musicIndex);
   playMusic();
 }
-
-function prevMusic() {
-  musicIndex--;
-  musicIndex < 1 ? (musicIndex = data.length) : (musicIndex = musicIndex);
+//next music function
+function nextMusic() {
+  musicIndex++; //increment of musicIndex by 1
+  musicIndex > data.length ? (musicIndex = 1) : (musicIndex = musicIndex);
   loadMusic(musicIndex);
   playMusic();
 }
@@ -100,4 +101,76 @@ progressArea.addEventListener("click", (e) => {
 
   mainAudio.currentTime = (clickedOffSetx / progressWidthval) * songDuration;
   playMusic();
+});
+
+const reqeatBtn = wrapper.querySelector("#reqeat-plist");
+
+reqeatBtn.addEventListener("click", () => {
+  let getText = reqeatBtn.innerText;
+
+  switch (getText) {
+    case "repeat":
+      reqeatBtn.innerText = "repeat_one";
+      reqeatBtn.setAttribute("title", "Song looped");
+      break;
+    case "repeat_one":
+      reqeatBtn.innerText = "shuffle";
+      reqeatBtn.setAttribute("title", "Playback shuffle");
+      break;
+    case "shuffle":
+      reqeatBtn.innerText = "repeat";
+      reqeatBtn.setAttribute("title", "PlayList Looped");
+      break;
+  }
+});
+
+mainAudio.addEventListener("ended", () => {
+  let getText = reqeatBtn.innerText;
+
+  switch (getText) {
+    case "repeat":
+      nextMusic();
+      break;
+    case "repeat_one":
+      mainAudio.currentTime = 0;
+      loadMusic(musicIndex);
+      playMusic();
+      break;
+    case "shuffle":
+      let randIndex = Math.floor(Math.random() * data.length + 1);
+      do {
+        randIndex = Math.floor(Math.random() * data.length + 1);
+      } while (musicIndex == randIndex);
+      musicIndex = randIndex;
+      loadMusic(musicIndex);
+      playMusic();
+      break;
+  }
+});
+
+const UlTag = wrapper.querySelector(".list");
+
+for (let i = 0; i < data.length; i++) {
+  let liTag = `
+      <li data-audioId="${data[i].id}">
+        <img src="assets/images/${data[i].img}" alt="" />
+        <i class="material-icons list_img">play_arrow</i>
+        <div>
+          <h3>${data[i].name}</h3>
+          <span>${data[i].auther}</span>
+        </div>
+        <audio src="assets/audio/${data[i].audio}"></audio>
+      </li>
+  `;
+  UlTag.insertAdjacentHTML("beforeend", liTag);
+}
+
+const LiTag = UlTag.querySelectorAll("li");
+
+LiTag.forEach((element) => {
+  element.addEventListener("click", (event) => {
+    musicIndex = element.dataset.audioid;
+    loadMusic(musicIndex);
+    playMusic();
+  });
 });

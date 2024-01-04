@@ -80,6 +80,11 @@ body {
 }
 
 .list li img {
+  height: 56px;
+}
+
+.list li img,
+.list li .list_img {
   position: absolute;
   top: 50%;
 
@@ -90,6 +95,7 @@ body {
 
 .list li .list_img {
   left: 4rem;
+  cursor: pointer;
 }
 
 .list li div {
